@@ -3,19 +3,12 @@
 import numpy
 import random
 
-<<<<<<< HEAD
 def amenazas( amenazas ):
     amenazas1=amenazas.split(":")
-=======
-def amenazas(amenazas):
-    am_g = []
-    amenazas1 = amenazas.split(":")
->>>>>>> origin/master
     amenaza_global = amenazas1[1]
     amenaza_local = amenazas1[0]
     ga = amenaza_local.split("-")
     cac = amenaza_global.split("-")
-<<<<<<< HEAD
     return ga,cac
 #Se ordena el string de amenaza en los grados (variable ga) y la cantidad de
 #enemigos por cuadrante
@@ -26,24 +19,11 @@ def maxima_amenaza( ga ):
         if i != "a" :
             if max_am <= str(ga[i]):
             max_am = str(ga[i])
-=======
-    am_g.append(ga)
-    am_g.append(cac)
-    return am_g
-
-def maxima_amenaza (am_g):
-    max_am = 0
-    am = am_g[0]
-    for i in am:
-        if i != "a":
-            if max_am <= int(am[i])
-            max_am = int(am[i])
->>>>>>> origin/master
     return max_am
 
-def mov():
+#max_am = leer los grados y hacer un max asi si C <= Cn
+#         C = Cn
 
-<<<<<<< HEAD
 def densidad_cuadrante ( cac ):
     cant_enem={}
     c=1
@@ -73,46 +53,24 @@ def mov(max_cuad):
         lasjdkajh
     if max_cuad == "C4":
         askljaij
-=======
->>>>>>> origin/master
 
 def dis( accion ):
     if ( accion == 1):
-        m = [(-1),(1)]
-        return m
+        return m = [(-1),(1)]
     if ( accion == 2):
-        m = [(-3,-2),(2,3)]
-        return m
+        return m = [(-3,-2),(2,3)]
     if ( accion == 3):
-        m = [(-5,-4),(4,5)]
-        return m
+        return m = [(-5,-4),(4,5)]
 
 def escoger_movimiento( amenazas ):
     if max_am == 3:
-        if max_c == "c1":
-            move = 1
-            return "0," + str(move)
-        elif max_c == "c2":
-            move = 1
-            return  str(move)
-        elif max_c == "c3":
-            move = 1
-            return "0," + str(move)
-        elif max_c == "c4":
-            move = 1
-            return "0," + str(move)
-    elif max_am == 2:
-        if max_c == "c1":
+        move = mov(1)
+        if max_c == c1:
             move = 
             return "0," + str(move)
-        elif max_c == "c2":
-            move = 1
-            return str(move) + ",0"
-        elif max_c == "c3":
-            move = 1
-            return "0," + str(move)
-        elif max_c == "c4":
-            move = 1
+    elif max_am == 2:
+        move = mov(random.choice([1,2]))
+        if max_c == c2:
             return str(move) +",0"
         return str(move) +",0"
     elif max_am == 1:
@@ -122,7 +80,7 @@ def escoger_movimiento( amenazas ):
             return cord
         cord = str(move) +",0"
         return cord
-    movimiento_x = str(move)
+    movimiento_x = str()
     movimiento_y = "" 
     return movimiento_x + "," + movimiento_y
 
