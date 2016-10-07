@@ -4,41 +4,55 @@ import numpy
 import random
 
 def amenazas( amenazas ):
-    amenaza_total =
     amenazas1=amenazas.split(":")
     amenaza_global = amenazas1[1]
     amenaza_local = amenazas1[0]
     ga = amenaza_local.split("-")
     cac = amenaza_global.split("-")
-    return ga and cac
+    return ga,cac
+#Se ordena el string de amenaza en los grados (variable ga) y la cantidad de
+#enemigos por cuadrante
 
-def maxima_amenaza ( ga ):
-    max_am = []
+def maxima_amenaza( ga ):
+    max_am = 0
     for i in ga:
-        if max_am <= str(ga[i]):
+        if i != "a" :
+            if max_am <= str(ga[i]):
             max_am = str(ga[i])
     return max_am
 
 #max_am = leer los grados y hacer un max asi si C <= Cn
 #         C = Cn
 
-def densidad_cuadrante ( amenazas ):
-    max_c= []
+def densidad_cuadrante ( cac ):
+    cant_enem={}
+    c=1
     for i in cac:
-        if max_c <= cac[i]:
-            max_c = cac[i]
-    return max_c
+        cant_enem["C"+"c"]=i
+        c+=1
+    return cant_enem
 
-#mas_c = leer los enemigos por cuadrante y hacer un max para tener el cuadrante
-#        con mas enemigos
+#Se crea un diccionario que tiene como llave a cada uno de los cuadrantes y
+#como valor tiene a la cantidad de enemigos en dicho cuadrante. 
 
-def mov( accion ):
-    if ( accion == 1):
-        return m = [-1,1]
-    if ( accion == 2):
-        return m = [-2,2]
-    if ( accion == 3):
-        return m = [-3,3]
+def Attack_zone( cant_enem ):
+    max_enem=0
+    max_cuad=""
+    for cuad,c_enem in cant_enem.items():
+        if c_enem > max_enem:
+            max_enem=c_enem
+            max_cuad="cuad"
+    return max_cuad
+
+def mov(max_cuad):
+    if max_cuad == "C1":
+        BLA
+    if max_cuad == "C2":
+        sjfah
+    if max_cuad == "C3":
+        lasjdkajh
+    if max_cuad == "C4":
+        askljaij
 
 def dis( accion ):
     if ( accion == 1):
@@ -100,7 +114,7 @@ def escoger_disparo( amenazas ):
         elif max_c == c4:
             disp = random.choice(dis[1])
             return str(disp) +",0"
-        #dispara al cuadrante con mas wns
+        #dispara al cuadrante con mas enemigos
     elif max_am == 1:
         disp = dis(3)
         if max_c == c1:
@@ -115,7 +129,7 @@ def escoger_disparo( amenazas ):
         elif max_c == c4:
             disp = random.choice(dis[1])
             return str(disp) +",0"
-        #dispara al cuadrante con mas weones
+        #dispara al cuadrante con mas enemigos
     disparo_x = ""
     disparo_y = ""
     return disparo_x + "," + disparo_y
