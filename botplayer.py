@@ -3,20 +3,14 @@
 import numpy
 import random
 
-<<<<<<< HEAD
-def amenazas( amenazas ):
-    amenazas1=amenazas.split(":")
-=======
 def amenazas(amenazas):
-    am_g = []
     amenazas1 = amenazas.split(":")
->>>>>>> origin/master
     amenaza_global = amenazas1[1]
     amenaza_local = amenazas1[0]
     ga = amenaza_local.split("-")
     cac = amenaza_global.split("-")
-<<<<<<< HEAD
     return ga,cac
+
 #Se ordena el string de amenaza en los grados (variable ga) y la cantidad de
 #enemigos por cuadrante
 
@@ -24,26 +18,12 @@ def maxima_amenaza( ga ):
     max_am = 0
     for i in ga:
         if i != "a" :
-            if max_am <= str(ga[i]):
-            max_am = str(ga[i])
-=======
-    am_g.append(ga)
-    am_g.append(cac)
-    return am_g
-
-def maxima_amenaza (am_g):
-    max_am = 0
-    am = am_g[0]
-    for i in am:
-        if i != "a":
-            if max_am <= int(am[i])
-            max_am = int(am[i])
->>>>>>> origin/master
+            if max_am <= i:
+                max_am = i
+            else:
+                max_am = 0
     return max_am
 
-def mov():
-
-<<<<<<< HEAD
 def densidad_cuadrante ( cac ):
     cant_enem={}
     c=1
@@ -61,117 +41,136 @@ def Attack_zone( cant_enem ):
     for cuad,c_enem in cant_enem.items():
         if c_enem > max_enem:
             max_enem=c_enem
-            max_cuad="cuad"
+            max_cuad=str(cuad)
     return max_cuad
 
-def mov(max_cuad):
-    if max_cuad == "C1":
-        BLA
-    if max_cuad == "C2":
-        sjfah
-    if max_cuad == "C3":
-        lasjdkajh
-    if max_cuad == "C4":
-        askljaij
-=======
->>>>>>> origin/master
-
-def dis( accion ):
-    if ( accion == 1):
-        m = [(-1),(1)]
-        return m
-    if ( accion == 2):
-        m = [(-3,-2),(2,3)]
-        return m
-    if ( accion == 3):
-        m = [(-5,-4),(4,5)]
-        return m
-
-def escoger_movimiento( amenazas ):
+def escoger_movimiento(max_am):
+    x = 0
+    y = 0
     if max_am == 3:
-        if max_c == "c1":
-            move = 1
-            return "0," + str(move)
-        elif max_c == "c2":
-            move = 1
-            return  str(move)
-        elif max_c == "c3":
-            move = 1
-            return "0," + str(move)
-        elif max_c == "c4":
-            move = 1
-            return "0," + str(move)
+        move = [-3,3]
+        if max_cuad == "C1":
+            y= move[1]
+            return y
+        elif max_cuad == "C2":
+            x = move[0]
+            return x
+        elif max_cuad == "C3":
+            y = move[0]
+            return y
+        elif max_cuad == "C4":
+            x = move[1]
+            return x
     elif max_am == 2:
-        if max_c == "c1":
-            move = 
-            return "0," + str(move)
-        elif max_c == "c2":
-            move = 1
-            return str(move) + ",0"
-        elif max_c == "c3":
-            move = 1
-            return "0," + str(move)
-        elif max_c == "c4":
-            move = 1
-            return str(move) +",0"
-        return str(move) +",0"
+        move = [-1,1]
+        if max_cuad == "C1":
+            y= move[1]
+            return y
+        elif max_cuad == "C2":
+            x = move[0]
+            return x
+        elif max_cuad == "C3":
+            y = move[0]
+            return y
+        elif max_cuad == "C4":
+            x = move[1]
+            return x
     elif max_am == 1:
-        move = mov(3)
-        if ( random.randint(0,1) ):
-            cord = "0," + str(move)
-            return cord
-        cord = str(move) +",0"
-        return cord
-    movimiento_x = str(move)
-    movimiento_y = "" 
+        move = [-3,3]
+        if max_cuad == "C1":
+            y= move[1]
+            return y
+        elif max_cuad == "C2":
+            x = move[0]
+            return x
+        elif max_cuad == "C3":
+            y = move[0]
+            return y
+        elif max_cuad == "C4":
+            x = move[1]
+            return x
+    elif max_am == 0:
+        move = [-3,3]
+        if max_cuad == "C1":
+            y= move[1]
+            return y
+        elif max_cuad == "C2":
+            x = move[0]
+            return x
+        elif max_cuad == "C3":
+            y = move[0]
+            return y
+        elif max_cuad == "C4":
+            x = move[1]
+            return x
+    
+    movimiento_x = str(x)
+    movimiento_y = str(y)
     return movimiento_x + "," + movimiento_y
 
-def escoger_disparo( amenazas ):
+def escoger_disparo(max_am):
+    dx = 0
+    dy = 0
     if max_am == 3:
-        disp = dis(1)
-        if max_c == c1:
-            disp = random.choice(dis[1])
-            return "0," + str(disp)
-        elif max_c == c2:
-            disp = random.choice(dis[0])
-            return str(disp) +",0"
-        elif max_c == c3:
-            disp = random.choice(dis[0])
-            return "0," + str(disp)
-        elif max_c == c4:
-            disp = random.choice(dis[1])
-            return str(disp) +",0"
-        
+        disp = [-1,1]
+        if max_cuad == "C1":
+            dy= disp[1]
+            return dy
+        elif max_cuad == "C2":
+            dx = disp[0]
+            return dx
+        elif max_cuad == "C3":
+            dy = move[0]
+            return dy
+        elif max_cuad == "C4":
+            dx = move[1]
+            return dx
+        #dispara a la pos. adyacente con mas enemigos por cuadrante
     elif max_am == 2:
-        disp = dis(random.choice([2,3]))
-        if max_c == c1:
-            disp = random.choice(dis[1])
-            return "0," + str(disp)
-        elif max_c == c2:
-            disp = random.choice(dis[0])
-            return str(disp) +",0"
-        elif max_c == c3:
-            disp = random.choice(dis[0])
-            return "0," + str(disp)
-        elif max_c == c4:
-            disp = random.choice(dis[1])
-            return str(disp) +",0"
+        disp = [(-3,-2),(2,3)]
+        if max_cuad == "C1":
+            dy= random.choice(disp[1])
+            return dy
+        elif max_cuad == "C2":
+            dx = random.choice(disp[0])
+            return dx
+        elif max_cuad == "C3":
+            dy = random.choice(disp[0])
+            return dy
+        elif max_cuad == "C4":
+            dx = random.choice(disp[1])
+            return dx
         #dispara al cuadrante con mas enemigos
     elif max_am == 1:
-        disp = dis(3)
-        if max_c == c1:
-            disp = random.choice(dis[1])
-            return "0," + str(disp)
-        elif max_c == c2:
-            disp = random.choice(dis[0])
-            return str(disp) +",0"
-        elif max_c == c3:
-            disp = random.choice(dis[0])
-            return "0," + str(disp)
-        elif max_c == c4:
-            disp = random.choice(dis[1])
-            return str(disp) +",0"
+        move = [-5,-4,4,5]
+        if max_cuad == "C1":
+            dy= random.choice(disp[1])
+            return dy
+        elif max_cuad == "C2":
+            dx = random.choice(disp[0])
+            return dx
+        elif max_cuad == "C3":
+            dy = random.choice(disp[0])
+            return dy
+        elif max_cuad == "C4":
+            dx = random.choice(disp[1])
+            return dx
         #dispara al cuadrante con mas enemigos
-    disparo_x = ""
-    disparo_y = ""
+    elif max_am == 0:
+        move = [-5,-4,4,5]
+        if max_cuad == "C1":
+            dy= random.choice(disp[1])
+            return dy
+        elif max_cuad == "C2":
+            dx = random.choice(disp[0])
+            return dx
+        elif max_cuad == "C3":
+            dy = random.choice(disp[0])
+            return dy
+        elif max_cuad == "C4":
+            dx = random.choice(disp[1])
+            return dx
+        
+    disparo_x = str(dx)
+    disparo_y = str(dy)
     return disparo_x + "," + disparo_y
