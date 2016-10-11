@@ -18,8 +18,9 @@ def maxima_amenaza( ga ):
     max_am = 0
     for i in ga:
         if i != "a" :
-            if max_am <= i:
+            if max_am > i:
                 max_am = i
+                print 
             else:
                 max_am = 0
     return max_am
@@ -47,21 +48,25 @@ def Attack_zone( cant_enem ):
 def escoger_movimiento(max_am):
     x = 0
     y = 0
-    if max_am == 3:
+    if max_am == '3':
         move = [-3,3]
         if max_cuad == "C1":
-            y= move[1]
-            return y
+            y = move[1]
+            x = 0
+            return y and x
         elif max_cuad == "C2":
             x = move[0]
-            return x
+            y = 0
+            return x and y
         elif max_cuad == "C3":
             y = move[0]
-            return y
+            x = 0
+            return y and x
         elif max_cuad == "C4":
             x = move[1]
-            return x
-    elif max_am == 2:
+            y = 0
+            return x and y
+    elif max_am == '2':
         move = [-1,1]
         if max_cuad == "C1":
             y= move[1]
@@ -75,7 +80,7 @@ def escoger_movimiento(max_am):
         elif max_cuad == "C4":
             x = move[1]
             return x
-    elif max_am == 1:
+    elif max_am == '1':
         move = [-3,3]
         if max_cuad == "C1":
             y= move[1]
@@ -89,7 +94,7 @@ def escoger_movimiento(max_am):
         elif max_cuad == "C4":
             x = move[1]
             return x
-    elif max_am == 0:
+    elif max_am == '0':
         move = [-3,3]
         if max_cuad == "C1":
             y= move[1]
@@ -111,7 +116,7 @@ def escoger_movimiento(max_am):
 def escoger_disparo(max_am):
     dx = 0
     dy = 0
-    if max_am == 3:
+    if max_am == '3':
         disp = [-1,1]
         if max_cuad == "C1":
             dy= disp[1]
@@ -126,7 +131,7 @@ def escoger_disparo(max_am):
             dx = move[1]
             return dx
         #dispara a la pos. adyacente con mas enemigos por cuadrante
-    elif max_am == 2:
+    elif max_am == '2':
         disp = [(-3,-2),(2,3)]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
@@ -141,7 +146,7 @@ def escoger_disparo(max_am):
             dx = random.choice(disp[1])
             return dx
         #dispara al cuadrante con mas enemigos
-    elif max_am == 1:
+    elif max_am == '1':
         move = [-5,-4,4,5]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
@@ -156,7 +161,7 @@ def escoger_disparo(max_am):
             dx = random.choice(disp[1])
             return dx
         #dispara al cuadrante con mas enemigos
-    elif max_am == 0:
+    elif max_am == '0':
         move = [-5,-4,4,5]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
