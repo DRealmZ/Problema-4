@@ -54,32 +54,44 @@ def escoger_movimiento(max_am):
         move = [-3,3]
         if max_cuad == "C1":
             y = move[1]
+            x = 0
         elif max_cuad == "C2":
             x = move[0]
+            y = 0
         elif max_cuad == "C3":
             y = move[0]
+            x = 0
         elif max_cuad == "C4":
             x = move[1]
+            y = 0
     elif max_am == '2':
         move = [-1,1]
         if max_cuad == "C1":
-            y= move[1]
+            y = move[1]
+            x = 0
         elif max_cuad == "C2":
             x = move[0]
+            y = 0
         elif max_cuad == "C3":
             y = move[0]
+            x = 0
         elif max_cuad == "C4":
             x = move[1]
+            y = 0
     elif max_am == '1' or max_am == '0':
         move = [-3,3]
         if max_cuad == "C1":
-            y= move[1]
+            y = move[1]
+            x = 0
         elif max_cuad == "C2":
             x = move[0]
+            y = 0
         elif max_cuad == "C3":
             y = move[0]
+            x = 0
         elif max_cuad == "C4":
             x = move[1]
+            y = 0
     movimiento_x = str(x)
     movimiento_y = str(y)
     return movimiento_x + "," + movimiento_y
@@ -90,35 +102,47 @@ def escoger_disparo(max_am):
     if max_am == '3':
         disp = [-1,1]
         if max_cuad == "C1":
-            dy= disp[1]
+            dy = disp[1]
+            dx = 0
         elif max_cuad == "C2":
             dx = disp[0]
+            dy = 0
         elif max_cuad == "C3":
             dy = disp[0]
+            dx = 0
         elif max_cuad == "C4":
             dx = disp[1]
+            dy = 0
         #dispara a la pos. adyacente con mas enemigos por cuadrante
     elif max_am == '2':
         disp = [(-3,-2),(2,3)]
         if max_cuad == "C1":
-            dy= random.choice(disp[1])
+            dy = random.choice(disp[1])
+            dx = 0
         elif max_cuad == "C2":
             dx = random.choice(disp[0])
+            dy = 0
         elif max_cuad == "C3":
             dy = random.choice(disp[0])
+            dx = 0
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
+            dy = 0
         #dispara al cuadrante con mas enemigos
     elif max_am == '1' or max_am == '0':
         disp = [(-5,-4),(4,5)]
         if max_cuad == "C1":
-            dy= random.choice(disp[1])
+            dy = random.choice(disp[1])
+            dx = 0
         elif max_cuad == "C2":
             dx = random.choice(disp[0])
+            dy = 0
         elif max_cuad == "C3":
             dy = random.choice(disp[0])
+            dx = 0
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
+            dy = 0
         #dispara al cuadrante con mas enemigos
         
     disparo_x = str(dx)
