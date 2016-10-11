@@ -19,11 +19,12 @@ def maxima_amenaza( ga ):
     for i in ga:
         if len(ga) > 1:
             if i != "a" :
-                if max_am > i:
-                    max_am = i 
+                if int(max_am) < int(i):
+                    max_am = int(i)
             else:
                 max_am = "0"
     return max_am
+#
 
 def densidad_cuadrante ( cac ):
     cant_enem={}
@@ -44,6 +45,7 @@ def Attack_zone( cant_enem ):
             max_enem=c_enem
             max_cuad=str(cuad)
     return max_cuad
+#Determina el cuadrante que tiene la mayor cantidad de enemigos
 
 def escoger_movimiento(max_am):
     x = 0
