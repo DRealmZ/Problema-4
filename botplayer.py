@@ -4,30 +4,44 @@ import numpy
 import random
 
 def amenazas(amenazas):
-    amenaza = amenazas.split(":")
-    amenaza = amenaza[0].split("-"),amenaza[1].split("-")
-    return amenaza
+    amenazas1 = amenazas.split(":")
+    amenaza_global = amenazas1[1]
+    amenaza_local = amenazas1[0]
+    ga = amenaza_local.split("-")
+    cac = amenaza_global.split("-")
+    return ga,cac
 
-#Se ordena el string de amenaza en los grados y la cantidad de
+#Se ordena el string de amenaza en los grados (variable ga) y la cantidad de
 #enemigos por cuadrante
 
-def maxima_amenaza( amenaza ):
+def maxima_amenaza( ga ):
     max_am = 0
-    for i in amenaza[0]:
+    for i in ga:
         if i != "a" :
-            if max_am < i:
+            if max_am <= i:
                 max_am = i
             else:
                 max_am = 0
     return max_am
 
-def Attack_zone(amenaza):
+def densidad_cuadrante ( cac ):
+    cant_enem={}
+    c=1
+    for i in cac:
+        cant_enem["C"+str(c)]=i
+        c+=1
+    return cant_enem
+
+#Se crea un diccionario que tiene como llave a cada uno de los cuadrantes y
+#como valor tiene a la cantidad de enemigos en dicho cuadrante. 
+
+def Attack_zone( cant_enem ):
     max_enem=0
     max_cuad=""
-    for i in amenaza[1]:
-        if i > max_enem:
-            max_enem = i
-            max_cuad="C" + str(i + 1)
+    for cuad,c_enem in cant_enem.items():
+        if c_enem > max_enem:
+            max_enem=c_enem
+            max_cuad=str(cuad)
     return max_cuad
 
 def escoger_movimiento(max_am):
