@@ -17,12 +17,12 @@ def amenazas(amenazas):
 def maxima_amenaza( ga ):
     max_am = 0
     for i in ga:
-        if i != "a" :
-            if max_am > i:
-                max_am = i
-                print 
+        if len(ga) > 1:
+            if i != "a" :
+                if max_am > i:
+                    max_am = i 
             else:
-                max_am = 0
+                max_am = "0"
     return max_am
 
 def densidad_cuadrante ( cac ):
@@ -52,62 +52,42 @@ def escoger_movimiento(max_am):
         move = [-3,3]
         if max_cuad == "C1":
             y = move[1]
-            x = 0
-            return y and x
         elif max_cuad == "C2":
             x = move[0]
-            y = 0
-            return x and y
         elif max_cuad == "C3":
             y = move[0]
-            x = 0
-            return y and x
         elif max_cuad == "C4":
             x = move[1]
-            y = 0
-            return x and y
     elif max_am == '2':
         move = [-1,1]
         if max_cuad == "C1":
             y= move[1]
-            return y
         elif max_cuad == "C2":
             x = move[0]
-            return x
         elif max_cuad == "C3":
             y = move[0]
-            return y
         elif max_cuad == "C4":
             x = move[1]
-            return x
     elif max_am == '1':
         move = [-3,3]
         if max_cuad == "C1":
             y= move[1]
-            return y
         elif max_cuad == "C2":
             x = move[0]
-            return x
         elif max_cuad == "C3":
             y = move[0]
-            return y
         elif max_cuad == "C4":
             x = move[1]
-            return x
     elif max_am == '0':
         move = [-3,3]
         if max_cuad == "C1":
             y= move[1]
-            return y
         elif max_cuad == "C2":
             x = move[0]
-            return x
         elif max_cuad == "C3":
             y = move[0]
-            return y
         elif max_cuad == "C4":
             x = move[1]
-            return x
     
     movimiento_x = str(x)
     movimiento_y = str(y)
@@ -120,61 +100,45 @@ def escoger_disparo(max_am):
         disp = [-1,1]
         if max_cuad == "C1":
             dy= disp[1]
-            return dy
         elif max_cuad == "C2":
             dx = disp[0]
-            return dx
         elif max_cuad == "C3":
-            dy = move[0]
-            return dy
+            dy = disp[0]
         elif max_cuad == "C4":
-            dx = move[1]
-            return dx
+            dx = disp[1]
         #dispara a la pos. adyacente con mas enemigos por cuadrante
     elif max_am == '2':
         disp = [(-3,-2),(2,3)]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
-            return dy
         elif max_cuad == "C2":
             dx = random.choice(disp[0])
-            return dx
         elif max_cuad == "C3":
             dy = random.choice(disp[0])
-            return dy
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
-            return dx
         #dispara al cuadrante con mas enemigos
     elif max_am == '1':
-        move = [-5,-4,4,5]
+        disp = [(-5,-4),(4,5)]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
-            return dy
         elif max_cuad == "C2":
             dx = random.choice(disp[0])
-            return dx
         elif max_cuad == "C3":
             dy = random.choice(disp[0])
-            return dy
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
-            return dx
         #dispara al cuadrante con mas enemigos
     elif max_am == '0':
-        move = [-5,-4,4,5]
+        disp = [(-5,-4),(4,5)]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
-            return dy
         elif max_cuad == "C2":
             dx = random.choice(disp[0])
-            return dx
         elif max_cuad == "C3":
             dy = random.choice(disp[0])
-            return dy
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
-            return dx
         
     disparo_x = str(dx)
     disparo_y = str(dy)
