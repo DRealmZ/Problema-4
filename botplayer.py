@@ -24,6 +24,7 @@ def maxima_amenaza( ga ):
     else:
         max_am = '0'
     return max_am
+#Determina el valor que indica la mayor amenaza
 
 def densidad_cuadrante ( cac ):
     cant_enem={}
@@ -44,6 +45,7 @@ def Attack_zone( cant_enem ):
             max_enem=c_enem
             max_cuad=str(cuad)
     return max_cuad
+#Se determina el cuadrante que contiene el mayor numero de enemigos
 
 def escoger_movimiento(max_am):
     x = 0
@@ -78,7 +80,6 @@ def escoger_movimiento(max_am):
             y = move[0]
         elif max_cuad == "C4":
             x = move[1]
-    
     movimiento_x = str(x)
     movimiento_y = str(y)
     return movimiento_x + "," + movimiento_y
