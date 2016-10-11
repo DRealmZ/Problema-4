@@ -93,7 +93,7 @@ def escoger_movimiento(max_am):
             x = move[1]
             y = 0
     movimiento_x = str(x)
-    movimiento_y = str(y)
+    movimiento_y = "0"
     return movimiento_x + "," + movimiento_y
 
 def escoger_disparo(max_am):
@@ -145,6 +145,6 @@ def escoger_disparo(max_am):
             dy = 0
         #dispara al cuadrante con mas enemigos
         
-    disparo_x = str(dx)
+    disparo_x = "0"
     disparo_y = str(dy)
     return disparo_x + "," + disparo_y
