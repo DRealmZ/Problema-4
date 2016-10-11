@@ -16,15 +16,14 @@ def amenazas(amenazas):
 
 def maxima_amenaza( ga ):
     max_am = 0
-    for i in ga:
-        if len(ga) > 1:
+    if len(ga) > 1:
+        for i in ga:
             if i != "a" :
-                if int(max_am) < int(i):
-                    max_am = int(i)
-            else:
-                max_am = "0"
+                if max_am <= i:
+                    max_am = i
+    else:
+        max_am = '0'
     return max_am
-#
 
 def densidad_cuadrante ( cac ):
     cant_enem={}
@@ -45,7 +44,6 @@ def Attack_zone( cant_enem ):
             max_enem=c_enem
             max_cuad=str(cuad)
     return max_cuad
-#Determina el cuadrante que tiene la mayor cantidad de enemigos
 
 def escoger_movimiento(max_am):
     x = 0
@@ -70,17 +68,7 @@ def escoger_movimiento(max_am):
             y = move[0]
         elif max_cuad == "C4":
             x = move[1]
-    elif max_am == '1':
-        move = [-3,3]
-        if max_cuad == "C1":
-            y= move[1]
-        elif max_cuad == "C2":
-            x = move[0]
-        elif max_cuad == "C3":
-            y = move[0]
-        elif max_cuad == "C4":
-            x = move[1]
-    elif max_am == '0':
+    elif max_am == '1' or max_am == '0':
         move = [-3,3]
         if max_cuad == "C1":
             y= move[1]
@@ -120,7 +108,7 @@ def escoger_disparo(max_am):
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
         #dispara al cuadrante con mas enemigos
-    elif max_am == '1':
+    elif max_am == '1' or max_am == '0':
         disp = [(-5,-4),(4,5)]
         if max_cuad == "C1":
             dy= random.choice(disp[1])
@@ -131,16 +119,6 @@ def escoger_disparo(max_am):
         elif max_cuad == "C4":
             dx = random.choice(disp[1])
         #dispara al cuadrante con mas enemigos
-    elif max_am == '0':
-        disp = [(-5,-4),(4,5)]
-        if max_cuad == "C1":
-            dy= random.choice(disp[1])
-        elif max_cuad == "C2":
-            dx = random.choice(disp[0])
-        elif max_cuad == "C3":
-            dy = random.choice(disp[0])
-        elif max_cuad == "C4":
-            dx = random.choice(disp[1])
         
     disparo_x = str(dx)
     disparo_y = str(dy)
